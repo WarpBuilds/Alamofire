@@ -1,4 +1,4 @@
-name: "Alamofire CI"
+name: "Alamofire CI [WarpBuild]"
 
 on:
   workflow_dispatch:
