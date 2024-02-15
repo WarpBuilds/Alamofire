@@ -1,15 +1,6 @@
 name: "Alamofire CI"
 
 on:
-  push:
-    branches:
-      - master
-      - hotfix
-    paths:
-      - ".github/workflows/**"
-      - "Package.swift"
-      - "Source/**"
-      - "Tests/**"
   pull_request:
     paths:
       - ".github/workflows/**"
