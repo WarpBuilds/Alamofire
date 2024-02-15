@@ -236,7 +236,7 @@ jobs:
         run: swift test -c debug | ${{ matrix.outputFilter }}
   CodeQL:
     name: Analyze with CodeQL
-    runs-on: warpdev-${{ matrix.runsOn }}-arm64-3x
+    runs-on: warpdev-macos-13-arm64-3x
     env:
       DEVELOPER_DIR: "/Applications/Xcode_14.3.1.app/Contents/Developer"
     timeout-minutes: 10
