@@ -9,7 +9,7 @@ concurrency:
 jobs:
   macOS:
     name: ${{ matrix.name }}
-    runs-on: warpdev-${{ matrix.runsOn }}-arm64-3x
+    runs-on: warp-ubuntu-latest-x64-2x
     env:
       DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
     timeout-minutes: 10
@@ -47,7 +47,7 @@ jobs:
           env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire macOS" -destination "platform=macOS" -testPlan "${{ matrix.testPlan }}" clean test | ${{ matrix.outputFilter }}
   Catalyst:
     name: ${{ matrix.name }}
-    runs-on: warpdev-${{ matrix.runsOn }}-arm64-3x
+    runs-on: warp-ubuntu-latest-x64-2x
     env:
       DEVELOPER_DIR: /Applications/${{ matrix.xcode }}.app/Contents/Developer
     timeout-minutes: 10
@@ -75,7 +75,7 @@ jobs:
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire iOS" -destination "platform=macOS" clean test 2>&1 | xcbeautify --renderer github-actions
   iOS:
     name: ${{ matrix.name }}
-    runs-on: warpdev-${{ matrix.runsOn }}-arm64-3x
+    runs-on: warp-ubuntu-latest-x64-2x
     env:
       DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
     timeout-minutes: 10
@@ -111,7 +111,7 @@ jobs:
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire iOS" -destination "${{ matrix.destination }}" -testPlan "${{ matrix.testPlan }}" clean test 2>&1 | xcbeautify --renderer github-actions
   tvOS:
     name: ${{ matrix.name }}
-    runs-on: warpdev-${{ matrix.runsOn }}-arm64-3x
+    runs-on: warp-ubuntu-latest-x64-2x
     env:
       DEVELOPER_DIR: /Applications/${{ matrix.xcode }}.app/Contents/Developer
     timeout-minutes: 10
@@ -147,7 +147,7 @@ jobs:
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire tvOS" -destination "${{ matrix.destination }}" -testPlan "${{ matrix.testPlan }}" clean test 2>&1 | xcbeautify --renderer github-actions
   visionOS:
     name: ${{ matrix.name }}
-    runs-on: warpdev-${{ matrix.runsOn }}-arm64-3x
+    runs-on: warp-ubuntu-latest-x64-2x
     env:
       DEVELOPER_DIR: "/Applications/Xcode_15.2.app/Contents/Developer"
     timeout-minutes: 10
@@ -168,7 +168,7 @@ jobs:
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "${{ matrix.scheme }}" -destination "${{ matrix.destination }}" -testPlan "${{ matrix.testPlan }}" clean test 2>&1 | xcbeautify --renderer github-actions
   watchOS:
     name: ${{ matrix.name }}
-    runs-on: warpdev-${{ matrix.runsOn }}-arm64-3x
+    runs-on: warp-ubuntu-latest-x64-2x
     env:
       DEVELOPER_DIR: /Applications/${{ matrix.xcode }}.app/Contents/Developer
     timeout-minutes: 10
@@ -204,7 +204,7 @@ jobs:
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire watchOS" -destination "${{ matrix.destination }}" -testPlan "${{ matrix.testPlan }}" clean test 2>&1 | xcbeautify --renderer github-actions
   SPM:
     name: ${{ matrix.name }}
-    runs-on: warpdev-${{ matrix.runsOn }}-arm64-3x
+    runs-on: warp-ubuntu-latest-x64-2x
     env:
       DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
     timeout-minutes: 10
@@ -236,7 +236,7 @@ jobs:
         run: swift test -c debug | ${{ matrix.outputFilter }}
   CodeQL:
     name: Analyze with CodeQL
-    runs-on: warpdev-macos-13-arm64-3x
+    runs-on: warp-ubuntu-latest-x64-2x
     env:
       DEVELOPER_DIR: "/Applications/Xcode_14.3.1.app/Contents/Developer"
     timeout-minutes: 10
